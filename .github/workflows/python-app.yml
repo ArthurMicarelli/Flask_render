@@ -31,11 +31,11 @@ jobs:
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           service-id: srv-crou67tsvqrc739lgsug
-          api-key: rnd_vYGYqcMbRR9LwYHFgM031LH1DwcZ
+          api-key: srv-crou67tsvqrc739lgsug
 
       - name: Deploy no EC2 -AWS
         run: |
           echo "Conectando no EC2"
           echo "${{secrets.AWS_KEY}}" > private_key && chmod 600 private_key
-            ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-90-62-72.compute-1.amazonaws.com "
+            ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-44-214-161-236.compute-1.amazonaws.com "
             cd Flask_render/;git pull;cd python_flask/;./executar.sh"
